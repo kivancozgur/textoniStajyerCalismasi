@@ -1,0 +1,1 @@
+{"version":3,"sources":["editors/tinymce/stylesheet.scss"],"names":[],"mappings":"AACA,4BAEE,YAAa,CAGf,yBACC,4BAEE,WAAY,CACZ","file":"editors/tinymce/stylesheet.css","sourcesContent":["\r\n.widget.box {\r\n\t.widget-content {\r\n\t\theight: 700px;\r\n\t}\r\n}\r\n@media (max-width: 991px) {\r\n\t.widget.box {\r\n\t\t.widget-content {\r\n\t\t\theight: auto;\r\n\t\t}\r\n\t}\r\n}"]}

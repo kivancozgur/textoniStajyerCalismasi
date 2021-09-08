@@ -1,0 +1,520 @@
+﻿
+@{
+    Layout = null;
+}
+
+@using Textoni.Models.Entity
+@model List<Advert>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+    <title>İçerik İlanları | Textoni </title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+    <!-- MASTER CSS BAŞLANGIÇ -->
+    <link href="/assets/css/loader.css" rel="stylesheet" type="text/css" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/myCustom/myCustom.css" rel="stylesheet" type="text/css" />
+    <!-- MASTER CSS BİTİŞ -->
+</head>
+
+<body>
+    <div id="eq-loader">
+        <div class="eq-loader-div">
+            <div class="eq-loading dual-loader mx-auto mb-5"></div>
+        </div>
+    </div>
+
+    <!--  ÜST BÖLÜM BAŞLANGIÇ  -->
+    <header class="desktop-nav header navbar fixed-top">
+        <div class="nav-logo mr-sm-5 ml-sm-4">
+            <a href="javascript:void(0);" class="nav-link sidebarCollapse d-inline-block mr-sm-5" data-placement="bottom">
+                <i class="flaticon-menu-line-3"></i>
+            </a>
+            <a href="index.html" class=""> <img src="assets/img/1.png" class="img-fluid" alt="logo"></a>
+        </div>
+        <ul class="navbar-nav flex-row mr-auto">
+            <li class="nav-item d-lg-block d-none">
+                <form class="form-inline form-inline search animated-search" role="search">
+                    <i class="flaticon-search-1 d-lg-none d-block"></i>
+                    <input type="text" class="form-control search-form-control" placeholder="İlan ara...">
+                </form>
+            </li>
+        </ul>
+
+        <ul class="navbar-nav flex-row ml-lg-auto">
+            <li class="nav-item dropdown message-dropdown ml-lg-4 mr-lg-4 d-sm-block d-none align-self-center">
+                <a href="yazar_gelen_mesajlar.html">
+                    <span class="icon flaticon-mail-25"></span>
+                </a>
+            </li>
+
+            <!-- <li class="nav-item dropdown notification-dropdown ml-3 mr-lg-4 align-self-center">
+                <a href="javascript:void(0);" class="nav-link dropdown-toggle" id="notification-dropdown" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    <span class="icon flaticon-bell-4"></span><span class="badge badge-primary" style="padding: 0px 3px 0px 3px;">3</span>
+                </a>
+                <div class="dropdown-menu position-absolute eq-animated eq-fadeInUp" aria-labelledby="notification-dropdown">
+                    <div class="notification-scroll">
+                        <div class="dropdown-item">
+                            <a href="">
+                                <div class="media">
+                                    <div class="user-profile">
+                                        <img src="assets/img/90x90.jpg" alt="admin-profile" class="img-fluid">
+                                    </div>
+                                    <div class="media-body">
+                                        <span>Alan Green</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="">
+                                <div class="media">
+                                    <div class="user-profile">
+                                        <img src="assets/img/90x90.jpg" alt="admin-profile" class="img-fluid">
+                                    </div>
+                                    <div class="media-body">
+                                        <span>Irene Collins</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="">
+                                <div class="media">
+                                    <div class="user-profile">
+                                        <img src="assets/img/90x90.jpg" alt="admin-profile" class="img-fluid">
+                                    </div>
+                                    <div class="media-body">
+                                        <span>Sonia Shaw</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="">
+                                <div class="media">
+                                    <div class="user-profile">
+                                        <img src="assets/img/90x90.jpg" alt="admin-profile" class="img-fluid">
+                                    </div>
+                                    <div class="media-body">
+                                        <span>Xavier</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </li> -->
+
+            <li class="nav-item dropdown user-profile-dropdown pl-4 pr-lg-0 pr-2 ml-lg-2 mr-lg-4  align-self-center">
+                <a href="javascript:void(0);" class="nav-link dropdown-toggle user">
+                    <div class="user-profile d-lg-block d-none">
+                        <img src="/assets/img/90x90.jpg" alt="admin-profile" class="img-fluid">
+                    </div>
+                    <i class="flaticon-user-7 d-lg-none d-block"></i>
+                </a>
+            </li>
+        </ul>
+    </header>
+    <!--  ÜST BÖLÜM BİTİŞ  -->
+    <!--  MAIN CONTAINER BAŞLANGIÇ  -->
+    <div class="main-container" id="container">
+        <div class="overlay"></div>
+        <div class="ps-overlay"></div>
+        <div class="search-overlay"></div>
+
+        <!--  SOL BAR BAŞLANGIÇ  -->
+        <div class="modernSidebar-nav header navbar">
+            <div class="">
+                <nav id="modernSidebar">
+                    <ul class="menu-categories pl-0 m-0" id="topAccordion">
+                        <li class="menu">
+                            <a href="yazar_vitrin.html" aria-expanded="false">
+                                <div class="">
+                                    <i class="flaticon-home-line-1"></i>
+                                    <span>Vitrin</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="menu">
+                            <a href="yazar_icerik_ilanina_gozat.html" aria-expanded="true">
+                                <div class="">
+                                    <i class="flaticon-view-1"></i>
+                                    <span>İlanlara Göz at</span>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="menu">
+                            <a href="yazar_icerik_olustur.html" aria-expanded="false">
+                                <div class="">
+                                    <i class="flaticon-pencil-1"></i>
+                                    <span>İçerik Oluştur</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="menu">
+                            <a href="#uiAndComponents" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                                <div class="">
+                                    <i class="flaticon-3d-cube"></i>
+                                    <span>Kariyer</span>
+                                </div>
+                            </a>
+                            <div class="submenu list-unstyled collapse eq-animated eq-fadeInUp" id="uiAndComponents" data-parent="#topAccordion">
+                                <div class="submenu-scroll">
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <a href="#ui-features" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">
+                                                <span class="">Kariyer</span>
+                                            </a>
+                                            <ul class="list-unstyled sub-submenu collapse show eq-animated eq-fadeInUp" id="ui-features">
+                                                <li>
+                                                    <a href="yazar_hazir_yazilarim.html"> Hazır Yazılarım </a>
+                                                </li>
+                                                <li>
+                                                    <a href="yazar_aktif_basvurular.html"> Aktif Başvurular </a>
+                                                </li>
+                                                <li>
+                                                    <a href="yazar_onaylanan_siparisler.html"> Onaylanan Siparişler </a>
+                                                </li>
+                                                <li>
+                                                    <a href="yazar_satilan_hazir_yazilar.html"> Satılan Hazır Yazılar </a>
+                                                </li>
+
+                                            </ul>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </li>
+
+
+                        <li class="menu">
+                            <a href="yazar_profil.html" aria-expanded="false">
+                                <div class="">
+                                    <i class="flaticon-user-8"></i>
+                                    <span>Hesabım</span>
+                                </div>
+                            </a>
+                        </li>
+
+
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!--  SOL BAR BİTİŞ  -->
+        <!--  CONTENT BAŞLANGIÇ  -->
+        <div id="content" class="main-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-12 mt-5">
+                        <div class="statbox widget box box-shadow">
+                            <div class="widget-content">
+                                <div class="row">
+                                    <div class="col-xl-7 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing ">
+                                        <img src="/assets/img/ilanagozat.png" class="border-radius-20 box-shadow-gri" width="100%"
+                                             style="height: 265px; border-radius: 10px;">
+                                    </div>
+
+                                    <div class="col-xl-5 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing ">
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 pl-lg-5 pr-lg-5">
+                                            <img src="/assets/img/ayinyazaristok.png" class=" box-shadow-gri" width="100%"
+                                                 style="height: 125px; border-radius: 10px;">
+                                        </div>
+
+
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-sm-0 mb-4 pl-lg-5 pr-lg-5">
+                                            <img src="/assets/img/dugun-buketi-textoni.jpg" class=" box-shadow-gri mt-3" width="100%"
+                                                 style=" height: 125px; border-radius: 10px; padding-left: 80px; padding-right:80px;">
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- SIRALAMA ARAMA BÖLÜMÜ BAŞLANGIÇ -->
+                    <div class="col-lg-12 layout-spacing" style="background-color: white;">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-3 mb-3 ">
+                            <div class="row text-center justify-content-center">
+                                <!-- Example single danger button -->
+                                <div class="text-center mr-2">
+                                    <div class="btn-group">
+                                        <select class="form-control form-control-rounded mt-3 mb-4 form-control-md">
+                                            <option>Hizmet Türü Seçin</option>
+                                            <option>Blog Yazı</option>
+                                            <option>Web Site İçeriği</option>
+                                            <option>Çeviri</option>
+                                            <option>Ürün Açıklaması</option>
+                                            <option>Makale</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="text-center ml-2">
+                                    <div class="btn-group">
+                                        <select class="form-control form-control-rounded mt-3 mb-4 form-control-md">
+                                            <option>Kategori Seçin</option>
+                                            <option>Aile</option>
+                                            <option>Teknoloji</option>
+                                            <option>Bitkiler</option>
+                                            <option>Ekonomi</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="text-center ml-2">
+                                    <div class="btn-group">
+                                        <select class="form-control form-control-rounded mt-3 mb-4 form-control-md">
+                                            <option>Sıralama</option>
+                                            <option>Kelime Sayısı Azdan Çoğa</option>
+                                            <option>Kelime Sayısı Çoktan Aza</option>
+                                            <option>Fiyat Çoktan Azan</option>
+                                            <option>Fiyat Azdan Çoğa</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="text-center ml-2 ">
+                                    <input type="submit" name="time" class="btn mt-3 border-radius-20"
+                                           style="background-color: #002d6a; color: white;" value="Ara">
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row mt-5" id="cancel-row">
+                            <div class="col-md-12 text-center mb-4  mt-3">
+                                <!-- <p class="section-subtitle">Checkout Features</p>	 -->
+                                <h2 class="section-title ">Acil <b>İlanlar</b></h2>
+                                <p style="color: black;">
+                                    Acil ilanlarla daha çok kazanç sağlayabilirsiniz!
+                                </p>
+                            </div>
+                            @foreach (var item in Model)
+                            {
+                                @if (@item.advertType == "acil")
+                                {
+                                    <div class="col-lg-3 layout-spacing">
+                                        <div class="product-card-acil">
+                                            <div class="product-tumb">
+                                                <img src="@item.image" alt="">
+                                            </div>
+
+                                            <div class="product-details">
+                                                <span class="product-catagory">@item.categoryAndServiceType</span>
+                                                <h5 class="mt-1 crop">
+                                                    <a href="http://localhost:15497/ilanlar/ilan">
+                                                        @item.title
+                                                    </a>
+                                                </h5>
+                                                <p>Kelime : @item.wordCount</p>
+                                                <div class="product-bottom-details">
+                                                    <div class="product-price">Kazanç : @item.earning</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                }
+                            }
+
+                            <div class="col-12 text-center">
+                                <a href="yazar_acil_ilan.html">
+                                    <button class="btn btn-gradient-default btn-rounded mb-4 mr-2">
+                                        Daha Fazla
+                                        >
+                                    </button>
+                                </a>
+                            </div>
+
+                            <div class="col-md-12 text-center mb-4  mt-3">
+                                <!-- <p class="section-subtitle">Checkout Features</p>	 -->
+                                <h2 class="section-title ">Öne Çıkan <b>İlanlar</b></h2>
+                                <p style="color: black;">
+                                    Öne Çıkan ilanlarla daha çok kazanç sağlayabilirsiniz!
+                                </p>
+                            </div>
+
+                            @foreach (var item in Model)
+                            {
+                                @if (@item.advertType == "onecikan")
+                                {
+
+                                    <div class="col-lg-3 layout-spacing">
+                                        <div class="product-card">
+                                            <div class="product-tumb">
+                                                <img src="@item.image" alt="">
+                                            </div>
+
+                                            <div class="product-details">
+                                                <span class="product-catagory">@item.categoryAndServiceType</span>
+                                                <h5 class="mt-1 crop">
+                                                    <a href="http://localhost:15497/ilanlar/ilan" itemref="">
+                                                        @item.title
+                                                    </a>
+                                                </h5>
+                                                <p>Kelime : @item.wordCount</p>
+                                                <div class="product-bottom-details">
+                                                    <div class="product-price">Kazanç : @item.earning</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+
+                            <div class="col-12 text-center">
+                                <a href="yazar_one_cikan_ilan.html">
+                                    <button class="btn btn-gradient-default btn-rounded mb-4 mr-2">
+                                        Daha Fazla
+                                        >
+                                    </button>
+                                </a>
+                            </div>
+
+                            <div class="col-md-12 text-center mb-4  mt-3">
+                                <!-- <p class="section-subtitle">Checkout Features</p>	 -->
+                                <h2 class="section-title ">En Son <b>İlanlar</b></h2>
+                                <p style="color: black;">
+                                    En Son ilanlara göz atarak kazanç sağlayabilirsiniz!
+                                </p>
+                            </div>
+
+                            @foreach (var item in Model)
+                            {
+                                @if (@item.advertType == "normal")
+                                {
+
+                                    <div class="col-lg-3 layout-spacing">
+                                        <div class="product-card">
+                                            <div class="product-tumb">
+                                                <img src="@item.image" alt="">
+                                            </div>
+
+                                            <div class="product-details">
+                                                <span class="product-catagory">@item.categoryAndServiceType</span>
+                                                <h5 class="mt-1 crop">
+                                                    <a href="http://localhost:15497/ilanlar/ilan">
+                                                        @item.title
+                                                    </a>
+                                                </h5>
+                                                <p>Kelime : @item.wordCount</p>
+                                                <div class="product-bottom-details">
+                                                    <div class="product-price">Kazanç : @item.earning</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                }
+                            }
+
+                            <div class="col-12 text-center">
+                                <a href="yazar_standart_ilanlar.html">
+                                    <button class="btn btn-gradient-default btn-rounded mb-4 mr-2">
+                                        Daha Fazla
+                                        >
+                                    </button>
+                                </a>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <!-- SIRALAMA ARAMA BÖLÜMÜ BİTİŞ -->
+
+                </div>
+            </div>
+        </div>
+        <!-- CONTENT BİTİŞ -->
+
+    </div>
+    <!--  MAIN CONTAINER BİTİŞ  -->
+    <!--  FOOTER BAŞLANGIÇ  -->
+    <footer class="footer-section theme-footer">
+
+        <div class="footer-section-1  sidebar-theme">
+
+        </div>
+
+        <div class="footer-section-2 container-fluid">
+            <div class="row">
+                <div id="toggle-grid" class="col-xl-7 col-md-6 col-sm-6 col-12 text-sm-left text-center">
+                    <ul class="list-inline links ml-sm-5">
+                        <li class="list-inline-item">
+                            <a target="_blank" href="https://themeforest.net/item/equation-responsive-admin-dashboard-template/23191987">Buy</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-xl-5 col-md-6 col-sm-6 col-12">
+                    <ul class="list-inline mb-0 d-flex justify-content-sm-end justify-content-center mr-sm-3 ml-sm-0 mx-3">
+                        <li class="list-inline-item  mr-3">
+                            <p class="bottom-footer">
+                                &#xA9; 2019 <a target="_blank" href="https://designreset.com/equation">
+                                    Equation Admin
+                                    Theme
+                                </a>
+                            </p>
+                        </li>
+                        <li class="list-inline-item align-self-center">
+                            <div class="scrollTop"><i class="flaticon-up-arrow-fill-1"></i></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--  FOOTER BİTİŞ  -->
+    <!--  PROFİL SAĞ BÖLÜM BAŞLANGIÇ  -->
+    <aside class="profile-sidebar text-center">
+        <div class="profile-content profile-content-scroll">
+            <div class="usr-profile">
+                <img src="/assets/img/by-no-game-textoni.jpg" alt="admin-profile" class="img-fluid" width="150" height="90"
+                     style="border-radius: 15%;">
+            </div>
+            <p class="user-name mt-4 mb-4">Kıvanç Özgür</p>
+            <div class="user-links text-left">
+                <ul class="list-unstyled">
+                    <li><a href="apps_mailbox.html"><i class="flaticon-mail-22"></i> Gelen Mesajlar</a></li>
+                    <li><a href="yazar_profil.html"><i class="flaticon-user-11"></i> Hesabım</a></li>
+                    <li><a href="user_login_1.html"><i class="flaticon-power-off"></i> Oturumu Kapat</a></li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+    <!--  PROFİL SAĞ BÖLÜM BİTİŞ  -->
+    <!-- MASTER SCRIPTLER BAŞLANGIÇ -->
+    <script src="/assets/js/libs/jquery-3.1.1.min.js"></script>
+    <script src="/assets/js/loader.js"></script>
+    <script src="/bootstrap/js/popper.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/plugins/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="/plugins/blockui/jquery.blockUI.min.js"></script>
+    <script src="/assets/js/app.js"></script>
+    <script>
+        $(document).ready(function () {
+            App.init();
+        });
+    </script>
+    <script src="/assets/js/custom.js"></script>
+    <!-- MASTER SCRIPTLER BİTİŞ  -->
+    <!-- LOTTİE GİFLERİ İÇİN SCRİPT -->
+    <script src="https://unpkg.com/lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</body>
+
+</html>

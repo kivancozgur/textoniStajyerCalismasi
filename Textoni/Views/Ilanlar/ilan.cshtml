@@ -1,0 +1,267 @@
+﻿
+@{
+    Layout = null;
+}
+
+@using Textoni.Models.Entity
+@model List<Advert>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+    <title>Çeviri | Textoni </title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
+    <link href="/plugins/sliders/owlCarousel/css/owl.carousel.min.css" rel="stylesheet" type="text/css" />
+    <link href="/plugins/sliders/owlCarousel/css/owl.theme.default.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/plugins/flaticon/style.css">
+    <link href="/assets/css/myCustom/myCustom.css" rel="stylesheet" type="text/css" />
+    <!-- Üst Bar İçin gereken css -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/pages/landing-page/style.css">
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="/assets/css/plugins.css" rel="stylesheet" type="text/css" />
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <!--  BEGIN CUSTOM STYLE FILE  -->
+    <link href="/assets/css/apps/mailbox.css" rel="stylesheet" type="text/css" />
+    <!--  END CUSTOM STYLE FILE  -->
+    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
+    <link href="/plugins/maps/vector/jvector/jquery-jvectormap-2.0.3.css" rel="stylesheet" type="text/css" />
+    <link href="/plugins/charts/chartist/chartist.css" rel="stylesheet" type="text/css">
+    <link href="/assets/css/default-dashboard/style.css" rel="stylesheet" type="text/css" />
+    <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
+    <!--  BEGIN CUSTOM STYLE FILE  -->
+    <link href="/assets/css/ui-kit/custom-tooltips_and_popovers.css" rel="stylesheet" type="text/css" />
+    <!--  END CUSTOM STYLE FILE  -->
+</head>
+
+<body style="background-color:#eee;">
+    <div id="eq-loader">
+        <div class="eq-loader-div">
+            <div class="eq-loading dual-loader mx-auto mb-5"></div>
+        </div>
+    </div>
+    <!--  BEGIN NAVBAR  -->
+    <div id="navHeadWrapper" class="navHeaderWrapper header-image">
+        <nav class="navbar navbar-expand-lg bg-faded header-nav">
+            <div class="container">
+                <!-- MARKA LOGOSU -->
+                <div class="col-xl-4 col-lg-3 col-6 mx-auto ">
+                    <a class="navbar-brand" href="anasayfa.html">
+                        <img src="/assets/img/textoni-logo-sabit-157x38px.png">
+                    </a>
+                </div>
+
+                <!-- TOGGLE BUTON -->
+                <div class="col-6 text-right d-lg-none d-block">
+                    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#nav-content"
+                            aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon flaticon-left-menu"></span>
+                    </button>
+                </div>
+
+                <!-- LİNKLER -->
+                <div class="col-xl-8 col-lg-9">
+                    <div class="collapse navbar-collapse justify-content-end" id="nav-content">
+                        <ul class="navbar-nav text-center mt-lg-0 mt-5">
+                            <li class="nav-item ml-4 d-lg-none d-sm-block d-none">
+                                <form class="form-inline search-full form-inline search animated-search" role="search">
+                                    <i class="flaticon-search-1 d-lg-none d-block"></i>
+                                    <input type="text" class="form-control search-form-control  ml-lg-auto" placeholder="Search...">
+                                </form>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link js-scroll-trigger" href="user_login_1.html">Giriş</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link js-scroll-trigger" href="user_register_1.html">Kayıt ol</a>
+                            </li>
+                            <li class="nav-item">
+                                <form class="form-inline justify-content-lg-start justify-content-center mt-lg-0 mt-5">
+                                    <button class="btn ml-xl-4" type="submit">Keşfet</button>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div> <!-- END NAVBAR -->
+    <!-- Ana Bölüm Başlangıç -->
+    @foreach (var item in Model)
+    {
+
+
+        @if (item.ID == 1)
+        {
+            <div class="container mt-5">
+                <!-- Kategori Bilgileri Başlangıç -->
+                <div class="col-xl-12 col-lg-6 col-md-12 col-sm-12 layout-spacing mr-2">
+                    <!-- Card Bölümü Başlangıcı -->
+                    <div class="row">
+                        <div class="col-xl-8 col-lg-6 col-md-6 col-sm-12">
+                            <!-- İlan fotoğrafı ve açıklaması başlangıç -->
+                            <div class="row layout-spacing">
+                                <div class="col-xl-12 col-lg-6 col-md-6 col-sm-12">
+                                    <div class="statbox widget box box-shadow">
+                                        <div class="widget-content widget-content-area product-cat6-header  px-0 py-0">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="col-xl-12 text-center">
+                                                        <img src="@item.image" class="img-fluid">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-12 col-lg-6 col-md-6 col-sm-12">
+                                    <div class="statbox widget box box-shadow">
+                                        <div class="widget-content widget-content-area product-cat6-konu-basligi  px-0 py-0">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="col-xl-12">
+                                                        <h4 class="card-title mt-4 ml-3">@item.title</h4>
+                                                        <h6>@item.categoryAndServiceType</h6>
+                                                        <p class="card-des px-2">
+                                                            @item.advertDeatils
+                                                        </p>
+                                                        <div class="col-lg-12 layout-spacing">
+                                                            <div class="statbox widget box box-shadow">
+                                                                <div class="widget-content widget-content-area tooltip-section">
+                                                                    <div class="row">
+                                                                        <div class="col-lg-12">
+                                                                            <h6>Anahtar Kelimeler</h6>
+                                                                            @{ string word = "";
+                                                                                foreach (var key in item.keyWord)
+                                                                                {
+                                                                                    if (key != ',')
+                                                                                    {
+                                                                                        word = word + key.ToString();
+                                                                                    }
+
+                                                                                    else
+                                                                                    {
+                                                                                        <a href="javascript:void(0);"
+                                                                                           class="btn btn-primary mb-4 mr-2 rounded bs-tooltip ml-2"
+                                                                                           title="Default Tooltip">
+                                                                                            @word
+                                                                                        </a>
+                                                                                        word = "";
+                                                                                    }
+                                                                                }
+                                                                                <a href="javascript:void(0);"
+                                                                                   class="btn btn-primary mb-4 mr-2 rounded bs-tooltip ml-2"
+                                                                                   title="Default Tooltip">
+                                                                                    @word
+                                                                                </a>
+                                                                            }
+                                                                            @*<button type="button" class="btn btn-primary mb-4 mr-2 rounded bs-tooltip ml-2"
+                                                                                        title="Default Tooltip">
+                                                                                    Valorant VP
+                                                                                </button>*@
+                                                                        </div>
+
+                                                                        <div class="col-lg-12">
+                                                                            <h6>Detaylar</h6>
+                                                                            <button type="button" class="btn btn-primary mb-4 mr-2 rounded bs-tooltip ml-2"
+                                                                                    data-placement="top" title="Tooltip on top">
+                                                                                Dil: @item.language
+                                                                            </button>
+                                                                            <button type="button" class="btn btn-primary mb-4 mr-2 rounded bs-tooltip ml-2"
+                                                                                    data-placement="right" title="Tooltip on right">
+                                                                                Kelime Sayisi: @item.wordCount
+                                                                            </button>
+                                                                            <button type="button" class="btn btn-primary mb-4 mr-2 rounded bs-tooltip ml-2"
+                                                                                    data-placement="bottom" title="Tooltip on bottom">
+                                                                                Alt Basliklar : @item.subHeaders
+                                                                            </button>
+
+                                                                        </div>
+
+                                                                        <div class="col-lg-12">
+                                                                            <h6>Fiyat</h6>
+                                                                            <button type="button" class="btn btn-success mb-4 mr-2 rounded bs-tooltip ml-2"
+                                                                                    data-toggle="tooltip" data-html="true" title="">
+                                                                                @item.earning
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="col-lg-12 text-right">
+                                                                            <button type="button"
+                                                                                    class="btn-custom btn-outline-success mb-4 mr-2 rounded bs-tooltip ml-2"
+                                                                                    data-toggle="tooltip" data-html="true" title="">
+                                                                                Başvur
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Brief Bölümü Başlangıcı -->
+                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 layout-spacing">
+                            <div class="statbox widget box box-shadow">
+                                <div class="widget-content widget-content-area product-cat6 pb-3 px-0 py-0">
+                                    <div class="row layout-spacing">
+                                        <div class="col-12">
+                                            <div class="card">
+                                                <div class="wrapper">
+                                                    <div class="row">
+                                                        <div class="col-xl-12">
+                                                            <!-- <span class="badge badge-success">Yeni</span> -->
+                                                            <img alt="image-product" src="@item.brandImage" class="img-fluid">
+                                                        </div>
+                                                        <div class="col-xl-12 text-center">
+                                                            <h4 class="card-title">Marka Açıklaması</h4>
+                                                            <p class="card-des pl-4 pr-4">
+                                                                @item.brandDescription
+                                                            </p>
+                                                            <!-- <p class="card-text">300 TL</p> -->
+                                                        </div>
+                                                        <!-- <div class="col-xl-12 text-center mt-2 mb-2 card-bottom-section">
+                                                                <a href="#"> <button class="btn">İlan Detayı</button></a>
+                                                            </div> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- Brief Bölümü Bitişi -->
+
+                    </div>
+                    <!-- Card Bölümü Bitişi -->
+                </div>
+                <!--  Kategori Bilgileri Bitiş -->
+            </div>
+        }
+    }
+
+    <!-- Ana Bölüm Bitiş -->
+
+    <script src="/assets/js/libs/jquery-3.1.1.min.js"></script>
+    <script src="/assets/js/loader.js"></script>
+    <script src="/bootstrap/js/popper.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+
+
+</body>
+
+</html>
