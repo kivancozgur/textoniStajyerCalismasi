@@ -8409,11 +8409,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tfati\\Desktop\\textoniStajyerCalismasi-main\\Textoni\\Textoni.csproj",
+      "projectUniqueName": "C:\\Users\\tfati\\Documents\\GitHub\\textoniStajyerCalismasi\\Textoni\\Textoni.csproj",
       "projectName": "Textoni",
-      "projectPath": "C:\\Users\\tfati\\Desktop\\textoniStajyerCalismasi-main\\Textoni\\Textoni.csproj",
+      "projectPath": "C:\\Users\\tfati\\Documents\\GitHub\\textoniStajyerCalismasi\\Textoni\\Textoni.csproj",
       "packagesPath": "C:\\Users\\tfati\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tfati\\Desktop\\textoniStajyerCalismasi-main\\Textoni\\obj\\",
+      "outputPath": "C:\\Users\\tfati\\Documents\\GitHub\\textoniStajyerCalismasi\\Textoni\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\tfati\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -11,10 +11,10 @@ namespace Textoni.Controllers
     public class IlanlarController : Controller
     {
 
-        public ViewResult ilan()
+        public ViewResult ilan(int id)
         {
             TextoniContext ctx = new TextoniContext();
-            List<Advert> adverts = ctx.Ad.ToList();
+            List<Advert> adverts = ctx.Ad.Where(x => x.ID == id).ToList();
             return View(adverts);
         }
 

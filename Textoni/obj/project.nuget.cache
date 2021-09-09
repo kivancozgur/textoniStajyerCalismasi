@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "W75BQ81Wn3qib3KTAIv+5FyTa0t8yVzhb2pHCWnoKESLrzZloBYUf4sutxK2czFPmzBRAPUK4JNH2RxjvNQiaw==",
+  "dgSpecHash": "l2JdANpfAVS8QMf+MjQQxJwrC0ZkDA2GBznzcjPoXqVb0LFctoyKmuXSQCmf3XaTP/BEqu2IUD/Ap5edW3EL+Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\tfati\\Desktop\\textoniStajyerCalismasi-main\\Textoni\\Textoni.csproj",
+  "projectFilePath": "C:\\Users\\tfati\\Documents\\GitHub\\textoniStajyerCalismasi\\Textoni\\Textoni.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\tfati\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\tfati\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",
