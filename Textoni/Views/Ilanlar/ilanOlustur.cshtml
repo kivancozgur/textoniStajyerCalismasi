@@ -3,6 +3,9 @@
     Layout = null;
 }
 
+@using Textoni.Models.ViewModel
+@model ilanOlusturVM
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -352,23 +355,33 @@
                                                 <div class="col-sm-6 col-12">
                                                     <div class="form-group ml-5 mr-5">
                                                         <select class="form-control form-custom" name="color">
-                                                            <option value="">Hizmet Türü..</option>
-                                                            <option value="brand1">Çeviri</option>
-                                                            <option value="brand2">Ürün Açıklaması</option>
-                                                            <option value="brand3">Web Sitesi İçeriği</option>
-                                                            <option value="brand4">Diğer..</option>
+                                                            <option value="" disabled selected>Hizmet Türü..</option>
+                                                            @foreach (var item in Model.CreateAdvert)
+                                                            {
+                                                                @if (item.advertTypes != null)
+                                                                {
+                                                                    <option value="brand1">@item.advertTypes</option>
+                                                                    @Html.TextBoxFor(x => x)
+                                                                }
+
+                                                            }
+
+
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6 col-12">
                                                     <div class="form-group ml-5 mr-5">
                                                         <select class="form-control form-custom" name="color">
-                                                            <option value="">Kategori..</option>
-                                                            <option value="">Aile</option>
-                                                            <option value="brand1">Bitkiler</option>
-                                                            <option value="brand2">Yaşam</option>
-                                                            <option value="brand3">Ticaret</option>
-                                                            <option value="brand4">Diğer..</option>
+                                                            <option value="" disabled selected>Kategori..</option>
+                                                            @foreach (var item in Model.CreateAdvert)
+                                                            {
+                                                                @if (item.categories != null)
+                                                                {
+                                                                    <option value="brand1">@item.categories</option>
+                                                                }
+
+                                                            }
                                                         </select>
                                                     </div>
                                                 </div>
@@ -376,9 +389,15 @@
                                                 <div class="col-sm-6 col-12">
                                                     <div class="form-group ml-5 mr-5">
                                                         <select class="form-control form-custom" name="brand">
-                                                            <option value="">Yazım Dili..</option>
-                                                            <option value="">Sen</option>
-                                                            <option value="brand2">Ben</option>
+                                                            <option value="" disabled selected>Yazım Dili..</option>
+                                                            @foreach (var item in Model.CreateAdvert)
+                                                            {
+                                                                @if (item.language != null)
+                                                                {
+                                                                    <option value="brand1">@item.language</option>
+                                                                }
+
+                                                            }
                                                         </select>
                                                     </div>
                                                 </div>
@@ -386,11 +405,15 @@
                                                 <div class="col-sm-6 col-12">
                                                     <div class="form-group ml-5 mr-5">
                                                         <select class="form-control form-custom" name="color">
-                                                            <option value="">Kaynak Dili Seçiniz..</option>
-                                                            <option value="">Türkçe</option>
-                                                            <option value="size1">İngilizce</option>
-                                                            <option value="size2">Japonca</option>
-                                                            <option value="size3">Diğer..</option>
+                                                            <option value="" disabled selected>kaynak dili seciniz..</option>
+                                                            @foreach (var item in Model.CreateAdvert)
+                                                            {
+                                                                @if (item.sourceLanguage != null)
+                                                                {
+                                                                    <option value="brand1">@item.sourceLanguage</option>
+                                                                }
+
+                                                            }
                                                         </select>
                                                     </div>
                                                 </div>
@@ -398,12 +421,15 @@
                                                     <div class=" ml-5">
                                                         <div class="form-group ">
                                                             <select class="form-control form-custom" name="color">
-                                                                <option value="">Min Kelime Sayısı</option>
-                                                                <option value="color1">100</option>
-                                                                <option value="color2">200</option>
-                                                                <option value="color3">300</option>
-                                                                <option value="color4">400</option>
-                                                                <option value="color5">1000</option>
+                                                                <option value="" disabled selected>Min Kelime Sayısı</option>
+                                                                @foreach (var item in Model.CreateAdvert)
+                                                                {
+                                                                    @if (item.minWord != null)
+                                                                    {
+                                                                        <option value="brand1">@item.minWord</option>
+                                                                    }
+
+                                                                }
                                                             </select>
                                                         </div>
                                                     </div>
@@ -412,291 +438,289 @@
                                                     <div class=" mr-5">
                                                         <div class="form-group ">
                                                             <select class="form-control form-custom" name="color">
-                                                                <option value="">Max Kelime Sayısı</option>
-                                                                <option value="color1">100</option>
-                                                                <option value="color2">200</option>
-                                                                <option value="color3">300</option>
-                                                                <option value="color4">400</option>
-                                                                <option value="color5">1000</option>
+                                                                <option value="" disabled selected>Max Kelime Sayısı</option>
+                                                                @foreach (var item in Model.CreateAdvert)
+                                                                {
+                                                                    @if (item.maxWord != null)
+                                                                    {
+                                                                        <option value="brand1">@item.maxWord</option>
+                                                                    }
+                                                                }
                                                             </select>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </form>
-                                    </section>
-                                    <h3>
-                                        <span class="icon">
-                                            <i class="done flaticon-double-check" style="display: none;"></i>
-                                            <i class="active flaticon-document-3" style="display: none"></i>
-                                        </span>
-                                    </h3>
-                                    
-                                    <section>
-                                        <h5 class="mt-5 mb-5 w-title">İlan Detayı</h5>
-                                        <form>
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <div class="col-sm-6 col-12">
-                                                    <textarea rows="1" cols="5" name="description" class="form-control"
-                                                              placeholder=" Konu Başlığı"></textarea>
-                                                </div>
-                                                <div class="col-sm-6 col-12">
-                                                    <div class="form-group ml-5 mr-5">
-                                                        <textarea rows="1" cols="5" id="fiyat" class="form-control" placeholder=" Teslim Tarihi/Gün"
-                                                                  onchange="ilanBedeli()"></textarea>
-                                                    </div>
-                                                </div>
 
-                                                <div class="col-sm-6 col-12">
-                                                    <textarea rows="4" cols="5" name="description" class="form-control"
-                                                              placeholder=" Anahtar Kelimeler"></textarea>
-                                                </div>
-                                                <div class="col-sm-6 col-12">
-                                                    <div class="form-group ml-5 mr-5">
+
+
+
+
+                                            <h5 class="mt-5 mb-5 w-title">İlan Detayı</h5>
+
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-sm-6 col-12">
+                                                        <textarea rows="1" cols="5" name="description" class="form-control"
+                                                                  placeholder=" Konu Başlığı"></textarea>
+                                                    </div>
+                                                    <div class="col-sm-6 col-12">
+                                                        <div class="form-group ml-5 mr-5">
+                                                            <textarea rows="1" cols="5" id="fiyat" class="form-control" placeholder=" Teslim Tarihi/Gün"
+                                                                      onchange="ilanBedeli()"></textarea>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-sm-6 col-12">
                                                         <textarea rows="4" cols="5" name="description" class="form-control"
-                                                                  placeholder=" Açıklaması"></textarea>
+                                                                  placeholder=" Anahtar Kelimeler"></textarea>
                                                     </div>
-                                                </div>
-                                                <div class="col-sm-6 col-12">
-                                                    <h6>Alt Başlıklar</h6>
-                                                    <textarea rows="4" cols="5" name="description" class="form-control"
-                                                              placeholder=" Başlık 1 : Örnek Başlık "></textarea>
-                                                </div>
-
-                                                <div class="col-sm-6 col-12">
-                                                    <div class="form-group ml-5 mr-5">
-                                                        <textarea rows="1" cols="5" id="fiyat" class="form-control" placeholder=" Tutar"
-                                                                  onchange="ilanBedeli()"></textarea>
+                                                    <div class="col-sm-6 col-12">
+                                                        <div class="form-group ml-5 mr-5">
+                                                            <textarea rows="4" cols="5" name="description" class="form-control"
+                                                                      placeholder=" Açıklaması"></textarea>
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                    <div class="col-sm-6 col-12">
+                                                        <h6>Alt Başlıklar</h6>
+                                                        <textarea rows="4" cols="5" name="description" class="form-control"
+                                                                  placeholder=" Başlık 1 : Örnek Başlık "></textarea>
+                                                    </div>
 
+                                                    <div class="col-sm-6 col-12">
+                                                        <div class="form-group ml-5 mr-5">
+                                                            <textarea rows="1" cols="5" id="fiyat" class="form-control" placeholder=" Tutar"
+                                                                      onchange="ilanBedeli()"></textarea>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
                                             </div>
-                                        </div>
-                                        
+
                                         </form>
+                                    </section>
 
 
 
 
-                                        <div class="row mt-4">
-                                            <div class="col-xl-6 col-12 mt-xl-0 mt-4">
-                                                <div class="order-product-list text-left box-shadow-mavi">
-                                                    <div class="table-responsive">
-                                                        <table class="table ">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th style="text-align: left;" class="w-title" scope="col">
-                                                                        Ürününüzü Öne Çıkarın
-                                                                    </th>
-                                                                    <th style="text-align: left;" class="w-title" scope="col">Fiyat</th>
-                                                                    <th style="text-align: left;" class="w-title" scope="col">Ekle</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td style="text-align: left;">
-                                                                        <span style="color: black;">Gizli İlan</span>
-                                                                        <i class="flaticon-question" data-toggle="tooltip" style="font-size: 15px;"
-                                                                           data-placement="top"
-                                                                           title="Markanızın adı diğer ilanlar ve yazarlar arasında gizli tutulacaktır"></i>
-                                                                    </td>
-                                                                    <td class="pricing" style="color: #1abc9c; text-align: left;">25 TL</td>
-                                                                    <td style="text-align: left;">
-                                                                        <input type="checkbox" id="gizliIlan" name="gizliIlan"
-                                                                               onchange="gizliIlanSec()">
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td style="text-align: left;">
-                                                                        <span style="color: black;">Hızlı Teslim</span>
-                                                                        <i class="flaticon-question" data-toggle="tooltip" style="font-size: 15px;"
-                                                                           data-placement="top"
-                                                                           title="İlanınız acil ilan kategorisinde yayınlanır"></i>
-                                                                    </td>
-                                                                    <td class="pricing" style="color: #1abc9c; text-align: left;">110 TL</td>
-                                                                    <td style="text-align: left;">
-                                                                        <input type="checkbox" id="hizliTeslim" name="hizliTeslim"
-                                                                               onchange="hizliTeslimSec()" value="newsletter">
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td style="text-align: left;">
-                                                                        <span style="color: black;">Uzman Yazar</span>
-                                                                        <i class="flaticon-question" data-toggle="tooltip" style="font-size: 15px;"
-                                                                           data-placement="top"
-                                                                           title="İlanınız sadece 5 puan alan yazarlara gözükür"></i>
-                                                                    </td>
-                                                                    <td class="pricing" style="color: #1abc9c; text-align: left;">30 TL</td>
-                                                                    <td style="text-align: left;">
-                                                                        <input type="checkbox" id="uzmanYazar" name="uzmanYazar"
-                                                                               onchange="uzmanYazarSec()">
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td style="text-align: left;">
-                                                                        <span style="color: black;">İlanı Öne Çıkar</span>
-                                                                        <i class="flaticon-question" data-toggle="tooltip" style="font-size: 15px;"
-                                                                           data-placement="top"
-                                                                           title="İlanınız öne çıkan ilanlar arasında yer alır"></i>
-                                                                    </td>
-                                                                    <td class="pricing" style="color: #1abc9c; text-align: left;">30 TL</td>
-                                                                    <td style="text-align: left;">
-                                                                        <input type="checkbox" id="ustSira" name="ustSira" onchange="ustSirarSec()">
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td colspan="3" style="text-align: left;">
-                                                                        <span style="color: #777;">
-                                                                            Bu hizmetlerden birini seçtiğinizde, hizmet bedeli
-                                                                            muaf
-                                                                            tutulacaktır.
-                                                                        </span>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                    <div class="table-responsive">
-                                                        <table class="table ">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th style="text-align: left;" class="w-title" scope="col">
-                                                                        İlanda Kalma Süresi
-                                                                    </th>
-                                                                    <th style="text-align: left;" class="w-title" scope="col">Fiyat</th>
-                                                                    <th style="text-align: left;" class="w-title" scope="col">Ekle</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td style="text-align: left;">
-                                                                        <span style="color: black;">0-5 gün</span>
-                                                                    </td>
-                                                                    <td class="pricing" style="color: #1abc9c; text-align: left;">Ücretsiz</td>
-                                                                    <td>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td style="text-align: left;">
-                                                                        <span style="color: black;">5-10 gün</span>
-                                                                    </td>
-                                                                    <td class="pricing" style="color: #1abc9c; text-align: left;">10 TL</td>
-                                                                    <td style="text-align: left;">
-                                                                        <input type="radio" id="hizliTeslim" name="ilansuresi"
-                                                                               onchange="hizliTeslimSec()" value="newsletter">
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td style="text-align: left;">
-                                                                        <span style="color: black;">10-20 gün</span>
-                                                                    </td>
-                                                                    <td class="pricing" style="color: #1abc9c; text-align: left;">18 TL</td>
-                                                                    <td style="text-align: left;">
-                                                                        <input type="radio" id="uzmanYazar" name="ilansuresi"
-                                                                               onchange="uzmanYazarSec()">
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td style="text-align: left;">
-                                                                        <span style="color: black;">30 gün</span>
+                                    <div class="row mt-4">
+                                        <div class="col-xl-6 col-12 mt-xl-0 mt-4">
+                                            <div class="order-product-list text-left box-shadow-mavi">
+                                                <div class="table-responsive">
+                                                    <table class="table ">
+                                                        <thead>
+                                                            <tr>
+                                                                <th style="text-align: left;" class="w-title" scope="col">
+                                                                    Ürününüzü Öne Çıkarın
+                                                                </th>
+                                                                <th style="text-align: left;" class="w-title" scope="col">Fiyat</th>
+                                                                <th style="text-align: left;" class="w-title" scope="col">Ekle</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td style="text-align: left;">
+                                                                    <span style="color: black;">Gizli İlan</span>
+                                                                    <i class="flaticon-question" data-toggle="tooltip" style="font-size: 15px;"
+                                                                       data-placement="top"
+                                                                       title="Markanızın adı diğer ilanlar ve yazarlar arasında gizli tutulacaktır"></i>
+                                                                </td>
+                                                                <td class="pricing" style="color: #1abc9c; text-align: left;">25 TL</td>
+                                                                <td style="text-align: left;">
+                                                                    <input type="checkbox" id="gizliIlan" name="gizliIlan"
+                                                                           onchange="gizliIlanSec()">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="text-align: left;">
+                                                                    <span style="color: black;">Hızlı Teslim</span>
+                                                                    <i class="flaticon-question" data-toggle="tooltip" style="font-size: 15px;"
+                                                                       data-placement="top"
+                                                                       title="İlanınız acil ilan kategorisinde yayınlanır"></i>
+                                                                </td>
+                                                                <td class="pricing" style="color: #1abc9c; text-align: left;">110 TL</td>
+                                                                <td style="text-align: left;">
+                                                                    <input type="checkbox" id="hizliTeslim" name="hizliTeslim"
+                                                                           onchange="hizliTeslimSec()" value="newsletter">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="text-align: left;">
+                                                                    <span style="color: black;">Uzman Yazar</span>
+                                                                    <i class="flaticon-question" data-toggle="tooltip" style="font-size: 15px;"
+                                                                       data-placement="top"
+                                                                       title="İlanınız sadece 5 puan alan yazarlara gözükür"></i>
+                                                                </td>
+                                                                <td class="pricing" style="color: #1abc9c; text-align: left;">30 TL</td>
+                                                                <td style="text-align: left;">
+                                                                    <input type="checkbox" id="uzmanYazar" name="uzmanYazar"
+                                                                           onchange="uzmanYazarSec()">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="text-align: left;">
+                                                                    <span style="color: black;">İlanı Öne Çıkar</span>
+                                                                    <i class="flaticon-question" data-toggle="tooltip" style="font-size: 15px;"
+                                                                       data-placement="top"
+                                                                       title="İlanınız öne çıkan ilanlar arasında yer alır"></i>
+                                                                </td>
+                                                                <td class="pricing" style="color: #1abc9c; text-align: left;">30 TL</td>
+                                                                <td style="text-align: left;">
+                                                                    <input type="checkbox" id="ustSira" name="ustSira" onchange="ustSirarSec()">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="3" style="text-align: left;">
+                                                                    <span style="color: #777;">
+                                                                        Bu hizmetlerden birini seçtiğinizde, hizmet bedeli
+                                                                        muaf
+                                                                        tutulacaktır.
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <div class="table-responsive">
+                                                    <table class="table ">
+                                                        <thead>
+                                                            <tr>
+                                                                <th style="text-align: left;" class="w-title" scope="col">
+                                                                    İlanda Kalma Süresi
+                                                                </th>
+                                                                <th style="text-align: left;" class="w-title" scope="col">Fiyat</th>
+                                                                <th style="text-align: left;" class="w-title" scope="col">Ekle</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td style="text-align: left;">
+                                                                    <span style="color: black;">0-5 gün</span>
+                                                                </td>
+                                                                <td class="pricing" style="color: #1abc9c; text-align: left;">Ücretsiz</td>
+                                                                <td>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="text-align: left;">
+                                                                    <span style="color: black;">5-10 gün</span>
+                                                                </td>
+                                                                <td class="pricing" style="color: #1abc9c; text-align: left;">10 TL</td>
+                                                                <td style="text-align: left;">
+                                                                    <input type="radio" id="hizliTeslim" name="ilansuresi"
+                                                                           onchange="hizliTeslimSec()" value="newsletter">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="text-align: left;">
+                                                                    <span style="color: black;">10-20 gün</span>
+                                                                </td>
+                                                                <td class="pricing" style="color: #1abc9c; text-align: left;">18 TL</td>
+                                                                <td style="text-align: left;">
+                                                                    <input type="radio" id="uzmanYazar" name="ilansuresi"
+                                                                           onchange="uzmanYazarSec()">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="text-align: left;">
+                                                                    <span style="color: black;">30 gün</span>
 
-                                                                    </td>
-                                                                    <td class="pricing" style="color: #1abc9c; text-align: left;">25 TL</td>
-                                                                    <td style="text-align: left;">
-                                                                        <input type="radio" id="ustSira" name="ilansuresi" onchange="ustSirarSec()">
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
+                                                                </td>
+                                                                <td class="pricing" style="color: #1abc9c; text-align: left;">25 TL</td>
+                                                                <td style="text-align: left;">
+                                                                    <input type="radio" id="ustSira" name="ilansuresi" onchange="ustSirarSec()">
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6 col-12 ">
-                                                <div class="text-left ml-5 mr-5 box-shadow-mavi p-4">
-                                                    <h5 class="w-title">Fiyatlandırma</h5>
-                                                    <hr class="solid" style=" border-top: 1px solid #191919;">
-                                                    <div class="row">
-                                                        <div class="col-6" id="ilanBedelirow">
-                                                            <p class="mb-2 mt-2" style="color: black; font-size: 15px;">İlan Bedeli</p>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <p class="mb-2 mt-2" id="ilanTutari" style="color: #1abc9c; font-size: 15px;">0 TL</p>
-                                                        </div>
+                                        </div>
+                                        <div class="col-xl-6 col-12 ">
+                                            <div class="text-left ml-5 mr-5 box-shadow-mavi p-4">
+                                                <h5 class="w-title">Fiyatlandırma</h5>
+                                                <hr class="solid" style=" border-top: 1px solid #191919;">
+                                                <div class="row">
+                                                    <div class="col-6" id="ilanBedelirow">
+                                                        <p class="mb-2 mt-2" style="color: black; font-size: 15px;">İlan Bedeli</p>
                                                     </div>
-                                                    <div class="row" id="gizliIlanrow" hidden>
-                                                        <div class="col-6">
-                                                            <p class="mb-2 mt-2" style="color: black; font-size: 15px;">Gizli İlan</p>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <p class="mb-2 mt-2" style="color: #1abc9c; font-size: 15px;">25 TL</p>
-                                                        </div>
+                                                    <div class="col-6">
+                                                        <p class="mb-2 mt-2" id="ilanTutari" style="color: #1abc9c; font-size: 15px;">0 TL</p>
                                                     </div>
-                                                    <div class="row" id="hizliTeslimrow" hidden>
-                                                        <div class="col-6">
-                                                            <p class="mb-2 mt-2" style="color: black; font-size: 15px;">Hızlı Teslim (max 48 saat)</p>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <p class="mb-2 mt-2" style="color: #1abc9c; font-size: 15px;">110 TL</p>
-                                                        </div>
+                                                </div>
+                                                <div class="row" id="gizliIlanrow" hidden>
+                                                    <div class="col-6">
+                                                        <p class="mb-2 mt-2" style="color: black; font-size: 15px;">Gizli İlan</p>
                                                     </div>
-                                                    <div class="row" id="uzmanYazarrow" hidden>
-                                                        <div class="col-6">
-                                                            <p class="mb-2 mt-2" style="color: black; font-size: 15px;">Uzman Yazar</p>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <p class="mb-2 mt-2" style="color: #1abc9c; font-size: 15px;">30 TL</p>
-                                                        </div>
+                                                    <div class="col-6">
+                                                        <p class="mb-2 mt-2" style="color: #1abc9c; font-size: 15px;">25 TL</p>
                                                     </div>
-                                                    <div class="row" id="ustSirarow" hidden>
-                                                        <div class="col-6">
-                                                            <p class="mb-2 mt-2" style="color: black; font-size: 15px;">İlanı Öne Çıkar</p>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <p class="mb-2 mt-2" style="color: #1abc9c; font-size: 15px;">30 TL</p>
-                                                        </div>
+                                                </div>
+                                                <div class="row" id="hizliTeslimrow" hidden>
+                                                    <div class="col-6">
+                                                        <p class="mb-2 mt-2" style="color: black; font-size: 15px;">Hızlı Teslim (max 48 saat)</p>
                                                     </div>
-                                                    <!-- <div class="row">
-                    <div class="col-6">
-                        <p class="mb-2 mt-2"
-                            style="color: black; font-size: 15px; text-decoration: line-through;">Hizmet Bedeli
-                        </p>
-                    </div>
-                    <div class="col-6">
-                        <p class="mb-2 mt-2"
-                            style="color: #1abc9c; font-size: 15px; text-decoration: line-through;">4,99 TL</p>
+                                                    <div class="col-6">
+                                                        <p class="mb-2 mt-2" style="color: #1abc9c; font-size: 15px;">110 TL</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row" id="uzmanYazarrow" hidden>
+                                                    <div class="col-6">
+                                                        <p class="mb-2 mt-2" style="color: black; font-size: 15px;">Uzman Yazar</p>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <p class="mb-2 mt-2" style="color: #1abc9c; font-size: 15px;">30 TL</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row" id="ustSirarow" hidden>
+                                                    <div class="col-6">
+                                                        <p class="mb-2 mt-2" style="color: black; font-size: 15px;">İlanı Öne Çıkar</p>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <p class="mb-2 mt-2" style="color: #1abc9c; font-size: 15px;">30 TL</p>
+                                                    </div>
+                                                </div>
+                                                <!-- <div class="row">
+                                                    <div class="col-6">
+                                                        <p class="mb-2 mt-2"
+                                                            style="color: black; font-size: 15px; text-decoration: line-through;">Hizmet Bedeli
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <p class="mb-2 mt-2"
+                                                            style="color: #1abc9c; font-size: 15px; text-decoration: line-through;">4,99 TL</p>
 
-                    </div>
-                </div> -->
-                                                    <div class="row">
-                                                        <div class="col-12">
-                                                            <hr class="solid" style=" border-top: 1px solid #191919;">
-                                                        </div>
                                                     </div>
-                                                    <div class="row">
-                                                        <div class="col-6">
-                                                            <p class="mb-2 mt-2" style="color:black ; font-size: 20px; font-weight: bold;">
-                                                                Genel
-                                                                Toplam
-                                                            </p>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <p class="mb-2 mt-2" style="color: #1abc9c; font-size: 20px; font-weight: bold;"
-                                                               id="genelToplam">0 TL</p>
-                                                        </div>
+                                                </div> -->
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <hr class="solid" style=" border-top: 1px solid #191919;">
                                                     </div>
-                                                    <div class="row">
-                                                        <div class="col-6 text-center">
-                                                            <button class="btn btn-success btn-rounded my-4  confirm-cash">Sepete Ekle</button>
-                                                        </div>
-                                                        <div class="col-6 text-center">
-                                                            <button class="btn btn-success btn-rounded my-4  confirm-cash">Hemen Öde</button>
-                                                        </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <p class="mb-2 mt-2" style="color:black ; font-size: 20px; font-weight: bold;">
+                                                            Genel
+                                                            Toplam
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <p class="mb-2 mt-2" style="color: #1abc9c; font-size: 20px; font-weight: bold;"
+                                                           id="genelToplam">0 TL</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6 text-center">
+                                                        <button class="btn btn-success btn-rounded my-4  confirm-cash">Sepete Ekle</button>
+                                                    </div>
+                                                    <div class="col-6 text-center">
+                                                        <button class="btn btn-success btn-rounded my-4  confirm-cash">Hemen Öde</button>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </section>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>

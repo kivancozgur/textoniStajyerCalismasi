@@ -46,7 +46,7 @@ namespace Textoni
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Ilanlar}/{action=ilanGozat}/{id?}");
+                    pattern: "{controller=Ilanlar}/{action=ilanOlustur}/{id?}");
             });
         }
     }

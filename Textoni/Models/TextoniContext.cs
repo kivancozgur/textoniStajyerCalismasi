@@ -15,5 +15,6 @@ namespace Textoni.Models
         }
 
         public DbSet<Advert> Ad{ get; set; }
+        public DbSet<CreateAd> CreateAdvert { get; set; }
     }
 }
