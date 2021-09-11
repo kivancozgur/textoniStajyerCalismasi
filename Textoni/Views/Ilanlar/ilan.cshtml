@@ -3,8 +3,8 @@
     Layout = null;
 }
 
-@using Textoni.Models.Entity
-@model List<Advert>
+@using Textoni.Models.ViewModel
+@model GozatModel
 
 <!DOCTYPE html>
 <html>
@@ -94,12 +94,10 @@
         </nav>
     </div> <!-- END NAVBAR -->
     <!-- Ana Bölüm Başlangıç -->
-    @foreach (var item in Model)
+    @foreach (var item in Model.AdvertTable)
     {
 
 
-        @if (item.ID == 1)
-        {
             <div class="container mt-5">
                 <!-- Kategori Bilgileri Başlangıç -->
                 <div class="col-xl-12 col-lg-6 col-md-12 col-sm-12 layout-spacing mr-2">
@@ -128,7 +126,7 @@
                                                 <div class="col-12">
                                                     <div class="col-xl-12">
                                                         <h4 class="card-title mt-4 ml-3">@item.title</h4>
-                                                        <h6>@item.categoryAndServiceType</h6>
+                                                        <h6>@item.category.AdvertCategorie</h6>
                                                         <p class="card-des px-2">
                                                             @item.advertDeatils
                                                         </p>
@@ -172,7 +170,7 @@
                                                                             <h6>Detaylar</h6>
                                                                             <button type="button" class="btn btn-primary mb-4 mr-2 rounded bs-tooltip ml-2"
                                                                                     data-placement="top" title="Tooltip on top">
-                                                                                Dil: @item.language
+                                                                                Dil: @item.language.AdvertLanguage
                                                                             </button>
                                                                             <button type="button" class="btn btn-primary mb-4 mr-2 rounded bs-tooltip ml-2"
                                                                                     data-placement="right" title="Tooltip on right">
@@ -276,7 +274,7 @@
                 </div>
                 <!--  Kategori Bilgileri Bitiş -->
             </div>
-        }
+        
     }
 
     <!-- Ana Bölüm Bitiş -->

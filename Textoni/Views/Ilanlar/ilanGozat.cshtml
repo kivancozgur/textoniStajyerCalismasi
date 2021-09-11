@@ -3,8 +3,8 @@
     Layout = null;
 }
 
-@using Textoni.Models.Entity
-@model List<Advert>
+@using Textoni.Models.ViewModel
+@model GozatModel
 
 <!DOCTYPE html>
 <html lang="en">
@@ -304,9 +304,9 @@
                                     Acil ilanlarla daha çok kazanç sağlayabilirsiniz!
                                 </p>
                             </div>
-                            @foreach (var item in Model)
+                            @foreach (var item in Model.AdvertTable)
                             {
-                                @if (@item.advertType == "acil")
+                                @if (@item.advertTypeID == 1)
                                 {
                                     <div class="col-lg-3 layout-spacing">
                                         <div class="product-card-acil">
@@ -315,7 +315,7 @@
                                             </div>
 
                                             <div class="product-details">
-                                                <span class="product-catagory">@item.categoryAndServiceType</span>
+                                                <span class="product-catagory">@item.category.AdvertCategorie</span>
                                                 <h5 class="mt-1 crop">
                                                     <a href="http://localhost:15497/ilanlar/ilan/@item.ID">
                                                         @item.title
@@ -349,9 +349,9 @@
                                 </p>
                             </div>
 
-                            @foreach (var item in Model)
+                            @foreach (var item in Model.AdvertTable)
                             {
-                                @if (@item.advertType == "onecikan")
+                                @if (@item.advertTypeID == 2)
                                 {
 
                                     <div class="col-lg-3 layout-spacing">
@@ -361,7 +361,7 @@
                                             </div>
 
                                             <div class="product-details">
-                                                <span class="product-catagory">@item.categoryAndServiceType</span>
+                                                <span class="product-catagory">@item.category.AdvertCategorie</span>
                                                 <h5 class="mt-1 crop">
                                                     <a href="http://localhost:15497/ilanlar/ilan/@item.ID" itemref="">
                                                         @item.title
@@ -394,9 +394,9 @@
                                 </p>
                             </div>
 
-                            @foreach (var item in Model)
+                            @foreach (var item in Model.AdvertTable)
                             {
-                                @if (@item.advertType == "normal")
+                                @if (@item.advertTypeID == 3)
                                 {
 
                                     <div class="col-lg-3 layout-spacing">
@@ -406,7 +406,7 @@
                                             </div>
 
                                             <div class="product-details">
-                                                <span class="product-catagory">@item.categoryAndServiceType</span>
+                                                <span class="product-catagory">@item.category.AdvertCategorie</span>
                                                 <h5 class="mt-1 crop">
                                                     <a href="http://localhost:15497/ilanlar/ilan/@item.ID">
                                                         @item.title

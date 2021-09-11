@@ -13,43 +13,47 @@ namespace Textoni.Controllers
         public ViewResult ilan(int id)
         {
             TextoniContext ctx = new TextoniContext();
-            List<Advert> adverts = ctx.Ad.Where(x => x.ID == id).ToList();
-            return View(adverts);
+            GozatModel gm = new GozatModel();
+            gm.AdCategorie = ctx.AdCategorie.ToList();
+            gm.AdvertTable = ctx.AdvertTable.Where(x => x.ID == id).ToList();
+            gm.AdLanguage = ctx.AdLanguage.ToList();
+            gm.AdSourceLanguage = ctx.AdSourceLanguage.ToList();
+            return View(gm);
         }
 
         public IActionResult ilanGozat()
         {
             TextoniContext ctx = new TextoniContext();
-            List<Advert> adverts = ctx.Ad.ToList();
-            return View(adverts);
+            GozatModel gm = new GozatModel();
+            gm.AdCategorie = ctx.AdCategorie.ToList();
+            gm.AdvertTable = ctx.AdvertTable.ToList();
+            return View(gm);
         }
 
-        public IActionResult ilanOlustur(Advert advert)
+        [HttpGet]
+        public IActionResult ilanOlustur()
         {
             TextoniContext ctx = new TextoniContext();
-            ilanOlusturVM vm = new ilanOlusturVM();
-            vm.Ad = ctx.Ad.ToList();
-            vm.CreateAdvert = ctx.CreateAdvert.ToList();
-
-            //Advert ilanUpdate = ctx.Ad.SingleOrDefault(ad => ad.ID == advert.ID);
-
-            //ilanUpdate.advertDeatils = advert.advertDeatils;
-            //ilanUpdate.advertType = advert.advertType;
-            //ilanUpdate.brandDescription = advert.brandDescription;
-            //ilanUpdate.brandImage = advert.brandImage;
-            //ilanUpdate.categoryAndServiceType = advert.categoryAndServiceType;
-            //ilanUpdate.description = advert.description;
-            //ilanUpdate.earning = advert.earning;
-            //ilanUpdate.image = advert.image;
-            //ilanUpdate.keyWord = advert.keyWord;
-            //ilanUpdate.language = advert.language;
-            //ilanUpdate.languageSource = advert.languageSource;
-            //ilanUpdate.subHeaders = advert.subHeaders;
-            //ilanUpdate.title = advert.title;
-            //ilanUpdate.wordCount = advert.wordCount;
-
-            return View(vm);
+            newModel nm = new newModel();
+            nm.AdLanguage = ctx.AdLanguage.ToList();
+            nm.AdCategorie = ctx.AdCategorie.ToList();
+            nm.AdSourceLanguage = ctx.AdSourceLanguage.ToList();
+            nm.AdType = ctx.AdType.ToList();
+            
+            
+            return View(nm);
         }
-        
+
+        [HttpPost]
+        public IActionResult ilanOlustur(Adverts advert)
+        {
+            TextoniContext ctx = new TextoniContext();
+
+            ctx.AdvertTable.Add(advert);
+            ctx.SaveChanges();
+
+            return RedirectToAction("ilanGozat","Ilanlar");
+        }
+       
     }
 }
